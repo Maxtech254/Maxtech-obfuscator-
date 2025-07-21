@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxTech Heavy JS Obfuscator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MaxTech Heavy JS Obfuscator</h1>
+            <p class="subtitle">Advanced JavaScript obfuscation with 4 levels of protection</p>
+        </header>
+        
+        <div class="card">
+            <div class="editor-header">
+                <h2>Original JavaScript Code</h2>
+                <div class="file-upload">
+                    <input type="file" id="fileInput" accept=".js" style="display: none;">
+                    <button class="btn btn-secondary" id="uploadBtn">
+                        📁 Upload JS File
+                    </button>
+                </div>
+            </div>
+            <textarea id="inputCode" placeholder="Paste your JavaScript code here..."></textarea>
+        </div>
+        
+        <div class="controls">
+            <div class="obfuscation-levels">
+                <button class="level-btn" data-level="low">Level 1: Low</button>
+                <button class="level-btn" data-level="hard">Level 2: Hard</button>
+                <button class="level-btn active" data-level="hardest">Level 3: Hardest</button>
+                <button class="level-btn" data-level="most-hardest">Level 4: Extreme</button>
+            </div>
+            
+            <div class="actions">
+                <button class="btn" id="obfuscateBtn">
+                    ⚡ Obfuscate Code
+                </button>
+                <button class="btn btn-secondary" id="copyBtn">
+                    📋 Copy
+                </button>
+                <button class="btn btn-secondary" id="downloadBtn">
+                    ⬇️ Download
+                </button>
+                <button class="btn btn-secondary" id="clearBtn">
+                    🗑️ Clear
+                </button>
+            </div>
+        </div>
+        
+        <div id="status" class="status"></div>
+        
+        <div class="card">
+            <div class="editor-header">
+                <h2>Obfuscated JavaScript Code</h2>
+                <div class="file-upload">
+                    <span id="charCount">0 characters</span>
+                </div>
+            </div>
+            <textarea id="outputCode" readonly placeholder="Your obfuscated code will appear here..."></textarea>
+        </div>
+        
+        <footer>
+            <p>MaxTech Heavy JavaScript Obfuscator</p>
+            <p>Preserves original code flow while providing maximum protection</p>
+            <div class="owner-info">
+                <p>Owner: terrizev | GitHub: terrizev</p>
+                <p>Contact: 256784670936</p>
+            </div>
+            <div style="margin-top: 15px;">
+                <span class="tech-badge">JavaScript Obfuscation</span>
+                <span class="tech-badge">Code Protection</span>
+                <span class="tech-badge">Flow Preservation</span>
+                <span class="tech-badge">Secure</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
