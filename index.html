@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Obfuscator | terrizev</title>
+    <title>MaxTech Obfuscator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>JavaScript Obfuscator</h1>
-            <p class="subtitle">Protect your code with heavy obfuscation</p>
+            <h1>MaxTech Obfuscator</h1>
+            <p class="subtitle">Heavy JavaScript Obfuscation with Flow Preservation</p>
         </header>
         
         <div class="editor-container">
@@ -18,16 +18,24 @@
                 <h3>Original Code</h3>
                 <div class="file-upload">
                     <input type="file" id="fileInput" accept=".js" style="display:none;">
-                    <button class="btn" id="uploadBtn">Upload JS File</button>
+                    <button class="btn" id="uploadBtn">Upload JS</button>
                 </div>
             </div>
             <textarea id="inputCode" placeholder="Paste your JavaScript code here..."></textarea>
         </div>
         
         <div class="controls">
-            <button class="btn" id="obfuscateBtn">Obfuscate Code</button>
-            <button class="btn" id="downloadBtn">Download</button>
-            <button class="btn" id="copyBtn">Copy</button>
+            <div class="obfuscation-levels">
+                <button class="level-btn" data-level="low">Low</button>
+                <button class="level-btn" data-level="hard">Hard</button>
+                <button class="level-btn" data-level="hardest">Hardest</button>
+                <button class="level-btn" data-level="most-hardest">Most Hardest</button>
+            </div>
+            <div class="actions">
+                <button class="btn" id="copyBtn">Copy</button>
+                <button class="btn" id="downloadBtn">Download</button>
+                <button class="btn" id="clearBtn">Clear</button>
+            </div>
         </div>
         
         <div class="editor-container">
@@ -39,11 +47,11 @@
         </div>
         
         <footer>
-            <p>© 2023 JS Obfuscator | Owner: terrizev</p>
+            <p>© 2023 MaxTech Obfuscator | Owner: terrizev</p>
             <p>GitHub: terrizev | Contact: 256784670936</p>
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="obfuscator.js"></script>
 </body>
 </html>
