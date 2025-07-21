@@ -4,193 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heavy JS Obfuscator | terrizev</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #1a1a1a;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--secondary);
-            color: var(--light);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            background-color: var(--primary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        h1 {
-            margin: 0;
-            color: var(--accent);
-            font-size: 2.5rem;
-        }
-        
-        .subtitle {
-            margin: 0.5rem 0 0;
-            color: var(--light);
-            opacity: 0.8;
-        }
-        
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        
-        .editor-container {
-            background-color: var(--primary);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .editor-header {
-            background-color: var(--dark);
-            padding: 0.75rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .editor-title {
-            margin: 0;
-            font-size: 1rem;
-            color: var(--light);
-        }
-        
-        textarea {
-            width: 100%;
-            height: 400px;
-            background-color: var(--secondary);
-            color: var(--light);
-            border: none;
-            padding: 1rem;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 14px;
-            resize: none;
-            outline: none;
-        }
-        
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1.5rem;
-            gap: 1rem;
-        }
-        
-        .file-upload {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .btn {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-        
-        .btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-secondary {
-            background-color: var(--primary);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #1a252f;
-        }
-        
-        .options {
-            background-color: var(--primary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .options-title {
-            margin-top: 0;
-            color: var(--accent);
-        }
-        
-        .option-group {
-            margin-bottom: 1rem;
-        }
-        
-        .option-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            padding: 1.5rem;
-            background-color: var(--primary);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .owner-info {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .controls {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Heavy JavaScript Obfuscator</h1>
-            <p class="subtitle">Powerful code obfuscation tool to protect your JavaScript</p>
+            <p class="subtitle">Advanced code protection with flow preservation</p>
         </header>
         
         <div class="main-content">
@@ -199,7 +19,7 @@
                     <h3 class="editor-title">Original Code</h3>
                     <div class="file-upload">
                         <input type="file" id="fileInput" accept=".js" style="display: none;">
-                        <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">Upload JS File</button>
+                        <button class="btn btn-secondary" id="uploadBtn">Upload JS File</button>
                     </div>
                 </div>
                 <textarea id="inputCode" placeholder="Paste your JavaScript code here or upload a file..."></textarea>
@@ -208,7 +28,7 @@
             <div class="editor-container">
                 <div class="editor-header">
                     <h3 class="editor-title">Obfuscated Code</h3>
-                    <button class="btn btn-secondary" onclick="copyOutput()">Copy</button>
+                    <button class="btn btn-secondary" id="copyBtn">Copy</button>
                 </div>
                 <textarea id="outputCode" placeholder="Obfuscated code will appear here..." readonly></textarea>
             </div>
@@ -216,10 +36,10 @@
         
         <div class="controls">
             <div>
-                <button class="btn" id="obfuscateBtn" onclick="obfuscateCode()">Obfuscate Code</button>
-                <button class="btn btn-secondary" onclick="clearCode()">Clear</button>
+                <button class="btn" id="obfuscateBtn">Obfuscate Code</button>
+                <button class="btn btn-secondary" id="clearBtn">Clear</button>
             </div>
-            <button class="btn" onclick="downloadCode()">Download Obfuscated</button>
+            <button class="btn" id="downloadBtn">Download Obfuscated</button>
         </div>
         
         <div class="options">
@@ -272,6 +92,11 @@
                     <input type="checkbox" id="domainLock">
                     <label for="domainLock">Domain Lock</label>
                 </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="preserveFlow" checked>
+                    <label for="preserveFlow">Preserve Code Flow</label>
+                </div>
             </div>
         </div>
         
@@ -281,151 +106,7 @@
         </footer>
     </div>
 
-    <script>
-        // File upload handling
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('inputCode').value = e.target.result;
-            };
-            reader.readAsText(file);
-        });
-        
-        // Obfuscation function
-        function obfuscateCode() {
-            const input = document.getElementById('inputCode').value.trim();
-            if (!input) {
-                alert('Please enter some JavaScript code to obfuscate!');
-                return;
-            }
-            
-            const obfuscateBtn = document.getElementById('obfuscateBtn');
-            obfuscateBtn.disabled = true;
-            obfuscateBtn.textContent = 'Obfuscating...';
-            
-            // Simulate heavy processing (in a real app, this would be actual obfuscation)
-            setTimeout(() => {
-                try {
-                    // Get options
-                    const transformLevel = document.getElementById('transformLevel').value;
-                    const options = {
-                        stringArray: document.getElementById('stringArray').checked,
-                        stringArrayRotate: document.getElementById('stringArrayRotate').checked,
-                        stringArrayShuffle: document.getElementById('stringArrayShuffle').checked,
-                        controlFlowFlattening: document.getElementById('controlFlowFlattening').checked,
-                        deadCodeInjection: document.getElementById('deadCodeInjection').checked,
-                        debugProtection: document.getElementById('debugProtection').checked,
-                        domainLock: document.getElementById('domainLock').checked,
-                        transformLevel: transformLevel
-                    };
-                    
-                    // In a real implementation, you would use a library like javascript-obfuscator here
-                    // For this demo, we'll just simulate the output
-                    const obfuscatedCode = simulateObfuscation(input, options);
-                    
-                    document.getElementById('outputCode').value = obfuscatedCode;
-                } catch (error) {
-                    document.getElementById('outputCode').value = `// Obfuscation Error:\n// ${error.message}`;
-                } finally {
-                    obfuscateBtn.disabled = false;
-                    obfuscateBtn.textContent = 'Obfuscate Code';
-                }
-            }, 1500);
-        }
-        
-        // Simulate obfuscation (demo purposes only)
-        function simulateObfuscation(code, options) {
-            // This is just a simulation - a real obfuscator would do much more
-            let result = `// Heavy JS Obfuscator - terrizev\n`;
-            result += `// Obfuscation level: ${options.transformLevel}\n`;
-            result += `// Options: ${JSON.stringify(options, null, 2).replace(/\n/g, '\n// ')}\n\n`;
-            
-            // Add some fake transformations based on options
-            if (options.stringArray) {
-                result += `const _0xabc123=['${btoa('stringArrayEnabled').slice(0, 10)}','${btoa('rotatedStrings').slice(0, 10)}'];\n`;
-            }
-            
-            if (options.controlFlowFlattening) {
-                result += `function _0xdef456(_0xparam1,_0xparam2){switch(_0xparam1){case 0:return _0xparam2+1;case 1:return _0xparam2-1;default:return _0xparam2*2;}}\n`;
-            }
-            
-            // Add the "obfuscated" code with some transformations
-            const lines = code.split('\n');
-            const varNames = ['a', 'b', 'c', 'd', 'e', 'f', 'x', 'y', 'z', 'result', 'temp', 'value'];
-            
-            lines.forEach(line => {
-                // Replace some variable names
-                let transformedLine = line;
-                varNames.forEach(varName => {
-                    const regex = new RegExp(`\\b${varName}\\b`, 'g');
-                    transformedLine = transformedLine.replace(regex, `_${varName}_${Math.floor(Math.random() * 1000)}`);
-                });
-                
-                // Add some random transformations based on level
-                if (options.transformLevel === 'high' || options.transformLevel === 'extreme') {
-                    if (transformedLine.includes('function') || transformedLine.includes('=>')) {
-                        transformedLine = `/* ${Math.random().toString(36).substring(7)} */ ${transformedLine}`;
-                    }
-                    
-                    if (Math.random() > 0.7) {
-                        transformedLine = transformedLine.split('').reverse().join('').split('').reverse().join('');
-                    }
-                }
-                
-                result += transformedLine + '\n';
-            });
-            
-            // Add debug protection if enabled
-            if (options.debugProtection) {
-                result += `\n// Debug protection\n`;
-                result += `function _0xdebugProtect(){setInterval(function(){debugger;},1000);}\n`;
-                result += `try{_0xdebugProtect();}catch(e){}\n`;
-            }
-            
-            // Add domain lock if enabled
-            if (options.domainLock) {
-                result += `\n// Domain lock\n`;
-                result += `if(window.location.hostname!=='example.com'){document.body.innerHTML='<h1>Access denied</h1>';}\n`;
-            }
-            
-            return result;
-        }
-        
-        // Copy output to clipboard
-        function copyOutput() {
-            const output = document.getElementById('outputCode');
-            output.select();
-            document.execCommand('copy');
-            alert('Obfuscated code copied to clipboard!');
-        }
-        
-        // Download obfuscated code
-        function downloadCode() {
-            const output = document.getElementById('outputCode').value;
-            if (!output.trim()) {
-                alert('No obfuscated code to download!');
-                return;
-            }
-            
-            const blob = new Blob([output], { type: 'text/javascript' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'obfuscated-code.js';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-        
-        // Clear both editors
-        function clearCode() {
-            document.getElementById('inputCode').value = '';
-            document.getElementById('outputCode').value = '';
-        }
-    </script>
+    <script src="obfuscator.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
