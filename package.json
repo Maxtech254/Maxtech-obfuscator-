@@ -1,0 +1,16 @@
+{
+  "name": "maxtech-obfuscator",
+  "version": "1.0.0",
+  "description": "Heavy JavaScript Obfuscator with 4 levels of protection",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14.x"
+  }
+}
