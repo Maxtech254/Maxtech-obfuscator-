@@ -3,110 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heavy JS Obfuscator | terrizev</title>
+    <title>JS Obfuscator | terrizev</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Heavy JavaScript Obfuscator</h1>
-            <p class="subtitle">Advanced code protection with flow preservation</p>
+            <h1>JavaScript Obfuscator</h1>
+            <p class="subtitle">Protect your code with heavy obfuscation</p>
         </header>
         
-        <div class="main-content">
-            <div class="editor-container">
-                <div class="editor-header">
-                    <h3 class="editor-title">Original Code</h3>
-                    <div class="file-upload">
-                        <input type="file" id="fileInput" accept=".js" style="display: none;">
-                        <button class="btn btn-secondary" id="uploadBtn">Upload JS File</button>
-                    </div>
+        <div class="editor-container">
+            <div class="editor-header">
+                <h3>Original Code</h3>
+                <div class="file-upload">
+                    <input type="file" id="fileInput" accept=".js" style="display:none;">
+                    <button class="btn" id="uploadBtn">Upload JS File</button>
                 </div>
-                <textarea id="inputCode" placeholder="Paste your JavaScript code here or upload a file..."></textarea>
             </div>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <h3 class="editor-title">Obfuscated Code</h3>
-                    <button class="btn btn-secondary" id="copyBtn">Copy</button>
-                </div>
-                <textarea id="outputCode" placeholder="Obfuscated code will appear here..." readonly></textarea>
-            </div>
+            <textarea id="inputCode" placeholder="Paste your JavaScript code here..."></textarea>
         </div>
         
         <div class="controls">
-            <div>
-                <button class="btn" id="obfuscateBtn">Obfuscate Code</button>
-                <button class="btn btn-secondary" id="clearBtn">Clear</button>
-            </div>
-            <button class="btn" id="downloadBtn">Download Obfuscated</button>
+            <button class="btn" id="obfuscateBtn">Obfuscate Code</button>
+            <button class="btn" id="downloadBtn">Download</button>
+            <button class="btn" id="copyBtn">Copy</button>
         </div>
         
-        <div class="options">
-            <h3 class="options-title">Obfuscation Options</h3>
-            
-            <div class="option-group">
-                <label class="option-label">Transformation Level:</label>
-                <select id="transformLevel" class="btn btn-secondary">
-                    <option value="low">Low</option>
-                    <option value="medium" selected>Medium</option>
-                    <option value="high">High</option>
-                    <option value="extreme">Extreme</option>
-                </select>
+        <div class="editor-container">
+            <div class="editor-header">
+                <h3>Obfuscated Code</h3>
+                <div class="status" id="status"></div>
             </div>
-            
-            <div class="option-group">
-                <label class="option-label">Additional Options:</label>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="stringArray" checked>
-                    <label for="stringArray">String Array Encoding</label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="stringArrayRotate" checked>
-                    <label for="stringArrayRotate">String Array Rotation</label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="stringArrayShuffle" checked>
-                    <label for="stringArrayShuffle">String Array Shuffle</label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="controlFlowFlattening" checked>
-                    <label for="controlFlowFlattening">Control Flow Flattening</label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="deadCodeInjection">
-                    <label for="deadCodeInjection">Dead Code Injection</label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="debugProtection">
-                    <label for="debugProtection">Debug Protection</label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="domainLock">
-                    <label for="domainLock">Domain Lock</label>
-                </div>
-                
-                <div class="checkbox-group">
-                    <input type="checkbox" id="preserveFlow" checked>
-                    <label for="preserveFlow">Preserve Code Flow</label>
-                </div>
-            </div>
+            <textarea id="outputCode" readonly></textarea>
         </div>
         
         <footer>
-            <p>© 2023 Heavy JS Obfuscator | Owner: terrizev</p>
-            <p class="owner-info">GitHub: terrizev | Contact: 256784670936</p>
+            <p>© 2023 JS Obfuscator | Owner: terrizev</p>
+            <p>GitHub: terrizev | Contact: 256784670936</p>
         </footer>
     </div>
 
-    <script src="obfuscator.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
